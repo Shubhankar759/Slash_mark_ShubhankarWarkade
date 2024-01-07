@@ -14,6 +14,16 @@ except FileNotFoundError:
 def save_task():
    Task.to_csv('Task.csv',index=False)
    
+def recommand():
+    if not Task.empty:
+        recommand_task = Task[Task['Priority']=='High']
+        if not recommand_task.empty:
+             task_display = random.choice(recommand_task['Description'])
+             print(f"Recommanded Task: {task_display}")
+        else:
+              print("No High Priority Task Avaliable")
+    else:
+        print("No Task avaliable for recommandation") 
     
 def add_task(description, priority):
     global Task  # Declare tasks as a global variable
@@ -57,7 +67,7 @@ while True:
  elif chocie=="3":
      list() 
  elif chocie=="4":
-     print("Hello")
+     recommand()
      
  elif chocie=="5":
      print("Exiting Task Manager")
