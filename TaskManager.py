@@ -7,12 +7,12 @@ import random
 Task = pd.DataFrame(columns =['Description','Priority'])
 
 try:
-    Task = pd.read_csv(r"C:\Users\shubh\Slash_Mark_Internship_Projects\Task.csv")
+    Task = pd.read_csv('Task.csv')
 except FileNotFoundError:
     print("ERROR:File Not Found in System")
 
 def save_task():
-   Task.to_csv( r"C:\Users\shubh\Slash_Mark_Internship_Projects\Task.csv",index=False)
+   Task.to_csv('Task.csv',index=False)
    
     
 def add_task(description, priority):
